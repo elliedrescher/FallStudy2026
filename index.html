@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeking the Heart of God — Fall 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7EEE9;
+    --paper-deep:#F0E2DC;
+    --card:#FFFBF9;
+    --ink:#3A2430;
+    --ink-soft:#6B5560;
+    --ink-faint:#9C8791;
+    --rule:#E3CFC8;
+
+    --haze:#8B82A6;
+    --haze-deep:#6F6690;
+
+    --m-sep:#C0892C;
+    --m-oct:#A63E52;
+    --m-nov:#6E4675;
+    --m-dec:#3F6053;
+
+    --accent:var(--m-sep);
+    --accent-wash:#F6E7CE;
+
+    --serif:'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+    --sans:'Karla', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(192,137,44,.05), transparent 45%),
+      radial-gradient(circle at 88% 62%, rgba(139,130,166,.07), transparent 50%);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+  }
+  :focus-visible{outline:2px solid var(--haze-deep); outline-offset:3px; border-radius:3px}
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px}
+
+  /* ── masthead ─────────────────────────── */
+  .masthead{padding:44px 0 22px; text-align:center}
+  .mast-title{
+    font-family:var(--serif); font-optical-sizing:auto; font-weight:400;
+    font-size:clamp(2rem,5.4vw,3.4rem); line-height:1.04; letter-spacing:-.015em;
+    margin:0 0 10px; font-variation-settings:'SOFT' 40,'WONK' 1;
+  }
+  .mast-title em{font-style:italic; font-weight:300}
+  .mast-sub{font-size:.95rem; color:var(--ink-soft); margin:0 auto; max-width:46ch}
+
+  nav.months{display:flex; justify-content:center; gap:6px; flex-wrap:wrap; padding:26px 0 0}
+  .mtab{
+    font-family:var(--serif); font-size:1.02rem; font-weight:500;
+    background:none; border:0; cursor:pointer; color:var(--ink-soft);
+    padding:9px 18px 11px; border-radius:999px; transition:color .18s, background .18s;
+  }
+  .mtab:hover{color:var(--ink)}
+  .mtab[aria-selected="true"]{color:#fff; background:var(--accent)}
+  .mtab .mtab-n{display:block; font-family:var(--sans); font-size:.62rem; letter-spacing:.16em; opacity:.62; font-weight:600}
+
+  /* ── ridge hero ───────────────────────── */
+  .hero{position:relative; margin-top:22px; border-radius:20px; overflow:hidden}
+  .ridge{display:block; width:100%; height:auto}
+  .hero-plate{
+    position:absolute; inset:auto 0 0 0; padding:0 clamp(20px,4vw,46px) clamp(18px,3vw,30px);
+    display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .hero-month{
+    font-family:var(--serif); font-weight:500; font-size:clamp(2.6rem,8vw,5rem);
+    line-height:.9; margin:0; color:var(--card); letter-spacing:-.02em;
+    font-variation-settings:'SOFT' 60,'WONK' 1; text-shadow:0 2px 18px rgba(58,36,48,.28);
+  }
+  .hero-month span{
+    display:block; font-family:var(--sans); font-size:.72rem; font-weight:600;
+    letter-spacing:.22em; opacity:.85; margin-bottom:8px; text-shadow:none;
+  }
+  .hero-disc{color:var(--card); text-align:right; max-width:30ch; padding-bottom:6px}
+  .hero-disc b{
+    display:block; font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(1.15rem,2.6vw,1.6rem); line-height:1.2;
+  }
+  .hero-disc small{font-size:.72rem; letter-spacing:.16em; opacity:.8; font-weight:600}
+
+
+  /* ── body grid ────────────────────────── */
+  .cols{display:grid; grid-template-columns:1fr 336px; gap:clamp(28px,4vw,54px); padding:44px 0 80px; align-items:start}
+  @media(max-width:900px){ .cols{grid-template-columns:1fr; gap:44px} }
+
+  h2.sec{font-family:var(--serif); font-weight:500; font-size:1.32rem; margin:0 0 4px; letter-spacing:-.01em}
+  .sec-note{font-size:.84rem; color:var(--ink-faint); margin:0 0 20px}
+  .earlier{
+    font:inherit; font-size:.83rem; background:none; border:0; padding:0 0 18px;
+    color:var(--haze-deep); cursor:pointer; text-decoration:underline; text-underline-offset:3px;
+  }
+  .earlier:hover{color:var(--ink)}
+
+  /* ── week ledger ──────────────────────── */
+  .week{border-top:1px solid var(--rule)}
+  .week:last-of-type{border-bottom:1px solid var(--rule)}
+  .week-head{
+    display:grid; grid-template-columns:96px 1fr 26px; gap:20px; align-items:start;
+    width:100%; background:none; border:0; padding:20px 0; cursor:pointer;
+    font:inherit; text-align:left; color:inherit;
+  }
+  .week-head:hover .week-date{color:var(--accent)}
+  .week-date{font-family:var(--serif); font-size:1.28rem; font-weight:500; line-height:1.05; display:block; transition:color .16s}
+  .week-n{font-size:.68rem; letter-spacing:.13em; color:var(--ink-faint); font-weight:600; margin-top:5px; display:block}
+  .week-sum{font-size:.97rem; color:var(--ink-soft); padding-top:3px}
+  .chev{width:11px; height:11px; margin-top:9px; justify-self:end; border-right:1.5px solid var(--ink-faint); border-bottom:1.5px solid var(--ink-faint); transform:rotate(45deg); transition:transform .2s}
+  .week[data-open="true"] .chev{transform:rotate(-135deg)}
+  .week[data-open="true"] .week-sum{display:none}
+
+  .week-body{display:none; padding:0 0 22px}
+  .week[data-open="true"] .week-body{display:grid; grid-template-columns:96px 1fr; gap:20px}
+  @media(max-width:560px){
+    .week-head{grid-template-columns:1fr 26px; row-gap:6px}
+    .week-head .week-when{grid-column:1}
+    .week-sum{grid-column:1/-1}
+    .week[data-open="true"] .week-body{grid-template-columns:1fr}
+    .week-body-spacer{display:none}
+  }
+
+  .reads{list-style:none; margin:0; padding:0}
+  .reads li{
+    padding:5px 0 5px 15px; font-size:1rem; position:relative; line-height:1.45;
+  }
+  .reads li::before{
+    content:''; position:absolute; left:0; top:.72em; width:5px; height:5px;
+    border-radius:50%; background:var(--rule);
+  }
+
+  /* current week */
+  .week[data-now="true"]{background:linear-gradient(90deg, var(--accent-wash), transparent 78%); border-radius:10px}
+  .week[data-now="true"] .week-head{padding-left:16px}
+  .week[data-now="true"] .week-body{padding-left:16px}
+  .now-tag{
+    display:inline-block; font-size:.63rem; letter-spacing:.15em; font-weight:700;
+    color:#fff; background:var(--accent); padding:3px 9px; border-radius:99px; margin-top:8px;
+  }
+  .adv-tag{
+    display:inline-block; font-size:.66rem; letter-spacing:.14em; font-weight:700;
+    color:var(--accent); background:var(--accent-wash); padding:3px 9px; border-radius:99px; margin-top:12px;
+  }
+
+  /* ── sidebar ──────────────────────────── */
+  aside{display:flex; flex-direction:column; gap:30px}
+  .panel{background:var(--card); border:1px solid var(--rule); border-radius:16px; padding:22px 22px 24px}
+  .panel-head{font-size:.68rem; letter-spacing:.15em; font-weight:700; color:var(--accent); margin:0 0 14px}
+
+  .book{display:flex; gap:16px; align-items:flex-start}
+  .spine{
+    flex:none; width:46px; height:68px; border-radius:3px 6px 6px 3px;
+    background:linear-gradient(100deg,var(--accent) 0 6px, color-mix(in srgb, var(--accent) 78%, #fff) 6px);
+    box-shadow:2px 3px 0 rgba(58,36,48,.09);
+  }
+  .book h3{font-family:var(--serif); font-size:1.14rem; font-weight:500; margin:0 0 4px; line-height:1.22}
+  .book p{margin:0; font-size:.85rem; color:var(--ink-soft)}
+  .book .span{display:block; margin-top:8px; font-size:.76rem; color:var(--ink-faint)}
+
+  .verse{padding:16px 0; border-top:1px dotted var(--rule)}
+  .verse:first-of-type{border-top:0; padding-top:0}
+  .verse-ref{
+    font-family:var(--serif); font-size:1.06rem; font-weight:500; margin:0; line-height:1.3;
+  }
+  .verse-when{
+    font-family:var(--sans); font-size:.76rem; font-weight:600; color:var(--ink-faint);
+    letter-spacing:.02em; white-space:nowrap;
+  }
+  .verse[data-now="true"] .verse-ref{color:var(--accent)}
+  .verse[data-now="true"] .verse-when{color:var(--accent)}
+  .verse-text{margin:8px 0 0; font-family:var(--serif); font-style:italic; font-size:.92rem; line-height:1.62; color:var(--ink-soft)}
+  .verse-src{font-family:var(--sans); font-style:normal; font-size:.66rem; letter-spacing:.12em; color:var(--ink-faint); display:block; margin-top:7px}
+  .verse-review{font-family:var(--serif); font-style:italic; font-size:.95rem; color:var(--ink-soft); margin:6px 0 0}
+  .psalm-note{margin:16px 0 0; padding-top:14px; border-top:1px solid var(--rule); font-size:.8rem; color:var(--ink-soft); line-height:1.55}
+
+  .meet{display:flex; gap:13px; align-items:baseline; padding:9px 0}
+  .meet + .meet{border-top:1px dotted var(--rule)}
+  .meet-date{font-family:var(--serif); font-size:1.05rem; font-weight:500; min-width:74px}
+  .meet-note{font-size:.82rem; color:var(--ink-soft)}
+  .meet-note.warn{color:var(--m-oct); font-weight:500}
+  .meet-empty{font-size:.85rem; color:var(--ink-faint); margin:0}
+
+  footer{
+    border-top:1px solid var(--rule); padding:28px 0 60px;
+    display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    font-size:.79rem; color:var(--ink-faint);
+  }
+  .ghost{font:inherit; background:none; border:1px solid var(--rule); color:var(--ink-soft); padding:7px 15px; border-radius:99px; cursor:pointer}
+  .ghost:hover{border-color:var(--haze); color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){ *{transition:none !important} }
+
+  @media print{
+    nav.months, .ghost, .earlier, .chev{display:none}
+    body{background:#fff}
+    .cols{grid-template-columns:1fr 300px; padding:24px 0}
+    .week-body{display:grid !important; grid-template-columns:96px 1fr; gap:20px}
+    .week-sum{display:none}
+    .panel, .week{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <h1 class="mast-title">Seeking the Heart of God<br><em>through his word</em></h1>
+    <p class="mast-sub">Scripture, memory verses, books, and gatherings for our fall together — September through December 2026.</p>
+    <nav class="months" id="months" role="tablist" aria-label="Choose a month"></nav>
+  </header>
+</div>
+
+<main id="app"></main>
+
+<div class="wrap">
+  <footer>
+    <span>Verse text: ESV · Reading plan adapted from David’s Men, a ministry of Biltmore Church</span>
+    <button class="ghost" id="print">Print this month</button>
+  </footer>
+</div>
+
+<script>
+/* ─────────────── verse text (ESV) ─────────────── */
+const V = {
+  'Psalm 119:11':'I have stored up your word in my heart, that I might not sin against you.',
+  'Psalm 1:1':'Blessed is the man who walks not in the counsel of the wicked, nor stands in the way of sinners, nor sits in the seat of scoffers;',
+  'Psalm 32:1-2':'Blessed is the one whose transgression is forgiven, whose sin is covered. Blessed is the man against whom the LORD counts no iniquity, and in whose spirit there is no deceit.',
+  'James 5:16':'Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working.',
+  '1 Peter 5:8':'Be sober-minded; be watchful. Your adversary the devil prowls around like a roaring lion, seeking someone to devour.',
+  'Psalm 1:1-2':'Blessed is the man who walks not in the counsel of the wicked, nor stands in the way of sinners, nor sits in the seat of scoffers; but his delight is in the law of the LORD, and on his law he meditates day and night.',
+  'John 15:7':'If you abide in me, and my words abide in you, ask whatever you wish, and it will be done for you.',
+  'Philippians 4:6-7':'do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.',
+  '1 Thessalonians 5:16-18':'Rejoice always, pray without ceasing, give thanks in all circumstances; for this is the will of God in Christ Jesus for you.',
+  'Psalm 1:1-3':'Blessed is the man who walks not in the counsel of the wicked, nor stands in the way of sinners, nor sits in the seat of scoffers; but his delight is in the law of the LORD, and on his law he meditates day and night. He is like a tree planted by streams of water that yields its fruit in its season, and its leaf does not wither. In all that he does, he prospers.',
+  'John 14:6':'Jesus said to him, “I am the way, and the truth, and the life. No one comes to the Father except through me.',
+  'Luke 9:23':'And he said to all, “If anyone would come after me, let him deny himself and take up his cross daily and follow me.',
+  'Psalm 1:1-4':'Blessed is the man who walks not in the counsel of the wicked, nor stands in the way of sinners, nor sits in the seat of scoffers; but his delight is in the law of the LORD, and on his law he meditates day and night. He is like a tree planted by streams of water that yields its fruit in its season, and its leaf does not wither. In all that he does, he prospers. The wicked are not so, but are like chaff that the wind drives away.'
+};
+
+const MONTHS = [
+  {
+    id:'sep', name:'September', accent:'var(--m-sep)', wash:'#F6E7CE',
+    hueA:'#C0892C', hueB:'#9C7B4A', hueC:'#8B82A6',
+    discipline:'Following Jesus',
+    book:{title:'How to Ruin Your Life', author:'Eric Geiger', span:'Late September through October'},
+    meetings:[{d:'Sep 17', n:'First gathering — kickoff'}],
+    weeks:[
+      {n:1, date:'Sep 21', start:'2026-09-21', reads:['1 Samuel 1','1 Samuel 2','1 Samuel 3','1 Samuel 4','1 Samuel 5'], verse:'Psalm 119:11'},
+      {n:2, date:'Sep 28', start:'2026-09-28', reads:['1 Samuel 6','1 Samuel 7','1 Samuel 8','1 Samuel 9','1 Samuel 10'], verse:'Psalm 1:1'}
+    ]
+  },
+  {
+    id:'oct', name:'October', accent:'var(--m-oct)', wash:'#F6DFE1',
+    hueA:'#A63E52', hueB:'#B9714E', hueC:'#8B82A6',
+    discipline:'Following Jesus',
+    book:{title:'How to Ruin Your Life', author:'Eric Geiger', span:'Late September through October'},
+    meetings:[{d:'Oct 1', n:''},{d:'Oct 15', n:''},{d:'Oct 29', n:''}],
+    weeks:[
+      {n:3, date:'Oct 5', start:'2026-10-05', reads:['1 Samuel 11','1 Samuel 12','1 Samuel 13','1 Samuel 14:1–23','1 Samuel 14:24–52'], verse:'Psalm 32:1-2'},
+      {n:4, date:'Oct 12', start:'2026-10-12', reads:['1 Samuel 15','1 Samuel 16','1 Samuel 17:1–24','1 Samuel 17:25–58','1 Samuel 18'], verse:'James 5:16'},
+      {n:5, date:'Oct 19', start:'2026-10-19', reads:['1 Samuel 19','1 Samuel 20','1 Samuel 21','1 Samuel 22','1 Samuel 23'], verse:'1 Peter 5:8'},
+      {n:6, date:'Oct 26', start:'2026-10-26', reads:['1 Samuel 24','1 Samuel 25','1 Samuel 26','1 Samuel 27','1 Samuel 28'], verse:'REVIEW'}
+    ]
+  },
+  {
+    id:'nov', name:'November', accent:'var(--m-nov)', wash:'#EADEEC',
+    hueA:'#6E4675', hueB:'#8E5A6B', hueC:'#8B82A6',
+    discipline:'Prayer',
+    book:{title:'Lead with Prayer', author:'Ryan Skoog, Peter Greer & Cameron Doolittle', span:'All of November'},
+    meetings:[{d:'Nov 12', n:''},{d:'Nov 26', n:'Thanksgiving — likely worth moving', warn:true}],
+    weeks:[
+      {n:7, date:'Nov 2', start:'2026-11-02', reads:['1 Samuel 29','1 Samuel 30','1 Samuel 31','2 Samuel 1','2 Samuel 2'], verse:'Psalm 1:1-2'},
+      {n:8, date:'Nov 9', start:'2026-11-09', reads:['2 Samuel 3','2 Samuel 4','2 Samuel 5','2 Samuel 6','2 Samuel 7'], verse:'John 15:7'},
+      {n:9, date:'Nov 16', start:'2026-11-16', reads:['2 Samuel 8','2 Samuel 9','2 Samuel 10','2 Samuel 11','2 Samuel 12'], verse:'Philippians 4:6-7'},
+      {n:10, date:'Nov 23', start:'2026-11-23', reads:['2 Samuel 13','2 Samuel 14','2 Samuel 15','2 Samuel 16','2 Samuel 17'], verse:'1 Thessalonians 5:16-18'},
+      {n:11, date:'Nov 30', start:'2026-11-30', reads:['2 Samuel 18','2 Samuel 19','2 Samuel 20','2 Samuel 21','2 Samuel 22:1–25'], verse:'Psalm 1:1-3'}
+    ]
+  },
+  {
+    id:'dec', name:'December', accent:'var(--m-dec)', wash:'#DDE7E0',
+    hueA:'#3F6053', hueB:'#5E7A62', hueC:'#8B82A6',
+    discipline:'The Doctrine of Christmas',
+    book:{title:'Hidden Christmas', author:'Timothy Keller', span:'All of December'},
+    meetings:[{d:'Dec 10', n:''},{d:'Dec 24', n:'Christmas Eve — likely worth moving', warn:true}],
+    weeks:[
+      {n:12, date:'Dec 7', start:'2026-12-07', reads:['2 Samuel 22:26–51','2 Samuel 23','2 Samuel 24','Micah 1','Micah 2'], verse:'John 14:6'},
+      {n:13, date:'Dec 14', start:'2026-12-14', reads:['Micah 3','Micah 4','Micah 5','Micah 6','Micah 7'], verse:'Luke 9:23'},
+      {n:14, date:'Dec 21', start:'2026-12-21', tag:'Advent', reads:['Isaiah 7:14; 9:2–7','Micah 5:1–4','Luke 1:26–38','Matthew 1:18–25','Luke 2:1–20'], verse:'REVIEW'},
+      {n:15, date:'Dec 28', start:'2026-12-28', reads:['Mark 1:1–20','Mark 1:21–45','Mark 2','Mark 3','Mark 4:1–20'], verse:'Psalm 1:1-4'}
+    ]
+  }
+];
+
+/* ─────────────── where are we in the plan ─────────────── */
+const DAY = 86400000;
+const today = (()=>{ const d=new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime(); })();
+const parse = s => { const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d).getTime(); };
+
+MONTHS.forEach(m => m.weeks.forEach(w=>{
+  const s = parse(w.start);
+  w.isPast = today >= s + 7*DAY;
+  w.isNow  = today >= s && today < s + 7*DAY;
+}));
+
+const openState = {};      // weekNumber -> true/false; everything starts closed
+MONTHS.forEach(m=>m.weeks.forEach(w=>{ openState[w.n] = false; }));
+
+let current = (()=>{
+  const nowMonth = MONTHS.find(m => m.weeks.some(w=>w.isNow));
+  if(nowMonth) return nowMonth.id;
+  const allPast = MONTHS.every(m => m.weeks.every(w=>w.isPast));
+  if(allPast) return 'dec';
+  const next = MONTHS.find(m => m.weeks.some(w=>!w.isPast));
+  return next ? next.id : 'sep';
+})();
+
+/* ─────────────── helpers ─────────────── */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function bookOf(ref){
+  const m = ref.match(/^((?:[123]\s)?[A-Za-z]+)\s/);
+  return m ? m[1] : ref;
+}
+function chapterOf(ref){
+  const m = ref.match(/^(?:[123]\s)?[A-Za-z]+\s+(\d+)/);
+  return m ? m[1] : '';
+}
+function summarize(w){
+  if(w.tag) return w.tag + ' readings';
+  const books = [...new Set(w.reads.map(bookOf))];
+  if(books.length === 1){
+    const a = chapterOf(w.reads[0]), b = chapterOf(w.reads[w.reads.length-1]);
+    return a === b ? `${books[0]} ${a}` : `${books[0]} ${a}–${b}`;
+  }
+  if(books.length === 2) return books.join(' & ');
+  return books.slice(0,-1).join(', ') + ' & ' + books[books.length-1];
+}
+
+function ridge(m){
+  return `<svg class="ridge" viewBox="0 0 1200 260" preserveAspectRatio="none" role="img" aria-label="Layered mountain ridgeline">
+    <defs>
+      <linearGradient id="sky-${m.id}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${m.hueC}" stop-opacity=".30"/>
+        <stop offset="100%" stop-color="${m.hueA}" stop-opacity=".16"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="260" fill="url(#sky-${m.id})"/>
+    <path d="M0 172 L120 132 L232 160 L340 108 L470 154 L588 118 L700 158 L820 124 L940 162 L1060 130 L1200 166 L1200 260 L0 260Z" fill="${m.hueC}" opacity=".55"/>
+    <path d="M0 200 L106 168 L218 194 L330 150 L452 190 L570 156 L690 196 L806 162 L928 198 L1052 168 L1200 202 L1200 260 L0 260Z" fill="${m.hueB}" opacity=".72"/>
+    <path d="M0 232 L128 206 L246 228 L368 196 L492 226 L610 200 L734 230 L858 202 L980 230 L1102 206 L1200 228 L1200 260 L0 260Z" fill="${m.hueA}"/>
+  </svg>`;
+}
+
+function verseBlock(w){
+  if(w.verse === 'REVIEW'){
+    return `<div class="verse" data-now="${w.isNow}">
+      <p class="verse-ref">Review <span class="verse-when">— ${esc(w.date)}</span></p>
+      <p class="verse-review">Go back through everything you’ve learned so far.</p>
+    </div>`;
+  }
+  return `<div class="verse" data-now="${w.isNow}">
+    <p class="verse-ref">${esc(w.verse)} <span class="verse-when">— ${esc(w.date)}</span></p>
+    <p class="verse-text">${esc(V[w.verse]||'')}<span class="verse-src">ESV</span></p>
+  </div>`;
+}
+
+function renderMonth(m){
+  const hasCollapsed = m.weeks.some(w => !openState[w.n]);
+
+  const weeksHTML = m.weeks.map(w=>{
+    const open = !!openState[w.n];
+    return `
+    <div class="week" data-open="${open}" data-now="${!!w.isNow}">
+      <button class="week-head" data-week="${w.n}" aria-expanded="${open}">
+        <span class="week-when">
+          <span class="week-date">${esc(w.date)}</span>
+          <span class="week-n">WEEK ${w.n}</span>
+        </span>
+        <span class="week-sum">${esc(summarize(w))}</span>
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+      <div class="week-body">
+        <div class="week-body-spacer"></div>
+        <div>
+          <ul class="reads">${w.reads.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
+          ${w.isNow ? `<span class="now-tag">THIS WEEK</span>` : ''}
+          ${w.tag ? `<span class="adv-tag">${esc(w.tag)}</span>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const bookHTML = m.book ? `
+    <div class="book">
+      <div class="spine" aria-hidden="true"></div>
+      <div>
+        <h3>${esc(m.book.title)}</h3>
+        <p>${esc(m.book.author)}</p>
+        <span class="span">${esc(m.book.span)}</span>
+      </div>
+    </div>` : `<p class="meet-empty">${esc(m.bookNote || 'Book to be announced.')}</p>`;
+
+  const meetHTML = m.meetings.length ? m.meetings.map(x=>`
+    <div class="meet">
+      <span class="meet-date">${esc(x.d)}</span>
+      <span class="meet-note ${x.warn?'warn':''}">${esc(x.n || 'Thursday')}</span>
+    </div>`).join('') : `<p class="meet-empty">No gathering this month.</p>`;
+
+  return `
+  <section class="month-page" style="--accent:${m.accent}; --accent-wash:${m.wash}">
+    <div class="wrap">
+      <div class="hero">
+        ${ridge(m)}
+        <div class="hero-plate">
+          <h2 class="hero-month"><span>2026</span>${esc(m.name)}</h2>
+          <div class="hero-disc">
+            <small>THIS MONTH WE PRACTICE</small>
+            <b>${esc(m.discipline)}</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="cols">
+        <div>
+          <h2 class="sec">Readings</h2>
+          <p class="sec-note">Five chapters a week. Tap any week to open or close it.</p>
+          ${hasCollapsed ? `<button class="earlier" id="expandAll">Open all weeks</button>` : ''}
+          ${weeksHTML}
+        </div>
+        <aside>
+          <div class="panel">
+            <p class="panel-head">READING TOGETHER</p>
+            ${bookHTML}
+          </div>
+          <div class="panel">
+            <p class="panel-head">VERSES TO MEMORIZE</p>
+            ${m.weeks.map(verseBlock).join('')}
+            <p class="psalm-note">Psalm 1 grows by one verse at a time — 1:1 in September, then 1:1–2, 1:1–3, 1:1–4. By spring it’s the whole psalm.</p>
+          </div>
+          <div class="panel">
+            <p class="panel-head">WHEN WE GATHER</p>
+            ${meetHTML}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderNav(){
+  document.getElementById('months').innerHTML = MONTHS.map(m=>`
+    <button class="mtab" role="tab" data-id="${m.id}" aria-selected="${m.id===current}">
+      ${esc(m.name)}<span class="mtab-n">${m.weeks.length} WEEKS</span>
+    </button>`).join('');
+}
+function render(){
+  const m = MONTHS.find(x=>x.id===current);
+  document.documentElement.style.setProperty('--accent', m.accent);
+  document.getElementById('app').innerHTML = renderMonth(m);
+  document.querySelectorAll('.mtab').forEach(b=>b.setAttribute('aria-selected', b.dataset.id===current));
+}
+
+document.addEventListener('click', e=>{
+  const tab = e.target.closest('.mtab');
+  if(tab){ current = tab.dataset.id; render(); window.scrollTo({top:0,behavior:'smooth'}); return; }
+
+  const head = e.target.closest('.week-head');
+  if(head){ const n = +head.dataset.week; openState[n] = !openState[n]; render(); return; }
+
+  if(e.target.id === 'expandAll'){
+    MONTHS.find(x=>x.id===current).weeks.forEach(w=>{ openState[w.n] = true; });
+    render(); return;
+  }
+  if(e.target.id === 'print'){ window.print(); }
+});
+
+renderNav();
+render();
+</script>
+</body>
+</html>
