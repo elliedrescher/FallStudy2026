@@ -2,7 +2,7 @@
    Pages come from the network first so updates appear right away,
    and fall back to the cached copy when there's no signal. */
 
-const CACHE = 'heart-of-god-v1';
+const CACHE = 'seeking-god-v2';
 const ASSETS = [
   './',
   './index.html',
