@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seeking the Heart of God — Fall 2026</title>
+<meta name="description" content="Scripture readings, memory verses, books, and gatherings for fall 2026.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#F7EEE9">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Heart of God">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..600&display=swap" rel="stylesheet">
@@ -199,6 +208,12 @@
   .ghost{font:inherit; background:none; border:1px solid var(--rule); color:var(--ink-soft); padding:7px 15px; border-radius:99px; cursor:pointer}
   .ghost:hover{border-color:var(--haze); color:var(--ink)}
 
+  /* launched from the home screen: no browser chrome to sit under */
+  @media(display-mode:standalone){
+    .masthead{padding-top:64px}
+    footer{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+  }
+
   @media(prefers-reduced-motion:reduce){ *{transition:none !important} }
 
   @media print{
@@ -225,7 +240,7 @@
 
 <div class="wrap">
   <footer>
-    <span>Verse text: ESV · Reading plan adapted from David’s Men, a ministry of Biltmore Church</span>
+    <span>Version 1 — September 2, 2026 · Verse text: ESV · Reading plan adapted from David’s Men, a ministry of Biltmore Church</span>
     <button class="ghost" id="print">Print this month</button>
   </footer>
 </div>
@@ -487,6 +502,13 @@ document.addEventListener('click', e=>{
 
 renderNav();
 render();
+
+/* offline support — only runs on a real https host, ignored elsewhere */
+if('serviceWorker' in navigator && location.protocol === 'https:'){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>

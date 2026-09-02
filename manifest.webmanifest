@@ -1,0 +1,16 @@
+{
+  "name": "Seeking the Heart of God",
+  "short_name": "Heart of God",
+  "description": "Scripture readings, memory verses, books, and gatherings for fall 2026.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F7EEE9",
+  "theme_color": "#F7EEE9",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
